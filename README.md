@@ -4,7 +4,7 @@ Solución modular construida bajo el estándar de JavaScript Vanilla enfocado en
 
 ---
 
-## 🚀 Instrucciones de Despliegue Local
+## Instrucciones de Despliegue Local
 
 Para ejecutar y probar la aplicación en su estación de trabajo local, efectúe los siguientes pasos:
 
@@ -15,7 +15,7 @@ Para ejecutar y probar la aplicación en su estación de trabajo local, efectúe
 ---
 
 
-## 💼 Matriz Funcional del Sistema
+## Matriz Funcional del Sistema
 
 | Operación / Control | Mecanismo de Activación | Comportamiento en Interfaz |
 | :--- | :--- | :--- |
@@ -46,7 +46,7 @@ Se utiliza exclusivamente para datos de navegación transitorios que pierden vig
 
 ---
 
-## 🧱 Estructura de Datos del Objeto Tarea
+## Estructura de Datos del Objeto Tarea
 
 Cada ítem administrado por el motor de JavaScript responde al siguiente modelo estructurado de propiedades:
 
