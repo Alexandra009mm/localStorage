@@ -259,6 +259,7 @@ inputTarea.addEventListener('keydown', function(evento) {
   }
 });
 
+
 /* === INICIALIZACIÓN DE LA APP === */
 verificarAvisoBienvenida(); 
 renderizar();      

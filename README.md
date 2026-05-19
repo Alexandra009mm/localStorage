@@ -14,6 +14,7 @@ Para ejecutar y probar la aplicación en su estación de trabajo local, efectúe
 
 ---
 
+
 ## 💼 Matriz Funcional del Sistema
 
 | Operación / Control | Mecanismo de Activación | Comportamiento en Interfaz |
