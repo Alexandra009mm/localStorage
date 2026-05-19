@@ -1,0 +1,288 @@
+
+:root {
+  --azul-primario:  #1e3a8a;  
+  --azul-hover:     #1d4ed8;  
+  --fondo-suave:    #f1f5f9;  
+  --pizarra-texto:  #334155; 
+  --gris-atenuado:  #64748b;  
+  --verde-exito:    #10b981;  
+  --rojo-borrar:    #ef4444;  
+  --blanco:         #ffffff;
+  --sombra-elegante: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* =====  GENERAL  ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+/* ===== ENTORNO DE LA PÁGINA ===== */
+body {
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%); /* Fondo degradado sobrio */
+  min-height: 100vh;
+  padding: 40px 16px;
+  transition: background 0.3s ease;
+}
+
+/* ===== CONTENEDOR PRINCIPAL (TARJETA) ===== */
+.card {
+  background: var(--blanco);
+  max-width: 540px;
+  margin: 0 auto;
+  border-radius: 16px; /* Bordes ligeramente redondeados y más formales */
+  padding: 32px 28px;
+  box-shadow: var(--sombra-elegante);
+}
+
+/* ===== TÍTULOS Y SECCIONES TEXTUALES ===== */
+h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--azul-primario);
+  margin-bottom: 4px;
+}
+
+#bienvenida {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--azul-hover);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+/* ===== FORMULARIO DE INGRESO (FILA AGREGAR) ===== */
+.fila-agregar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#inputTarea {
+  flex: 1; /* Expande el input para ocupar todo el espacio sobrante */
+  padding: 12px 16px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#inputTarea:focus {
+  border-color: var(--azul-primario); /* Resalta el cuadro al escribir */
+}
+
+#btnAgregar {
+  background: var(--azul-primario);
+  color: var(--blanco);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#btnAgregar:hover {
+  background: var(--azul-hover);
+  transform: translateY(-1px); /* Efecto sutil de elevación */
+}
+
+/* ===== FILTROS DE NAVEGACIÓN ===== */
+.filtros {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filtros button {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  background: var(--blanco);
+  color: var(--gris-atenuado);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Estado activo para el filtro seleccionado */
+.filtros button.activo {
+  background: var(--azul-primario);
+  border-color: var(--azul-primario);
+  color: var(--blanco);
+}
+
+/* ===== COMPONENTE DE CONTADORES ===== */
+.contadores {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--pizarra-texto);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.contadores span {
+  background: var(--fondo-suave);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+/* ===== LISTADO DINÁMICO DE TAREAS ===== */
+#listaTareas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Estructura de cada fila de tarea */
+.tarea-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--fondo-suave);
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+  transition: all 0.2s ease;
+}
+
+.tarea-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--verde-exito);
+  cursor: pointer;
+  flex-shrink: 0; /* Evita que el checkbox se deforme si el texto es muy largo */
+}
+
+.tarea-texto {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--pizarra-texto);
+  word-break: break-word; /* Divide palabras largas para no romper la interfaz */
+  cursor: pointer;
+}
+
+/* Estilo visual para identificar tareas ya resueltas */
+.tarea-completada .tarea-texto {
+  text-decoration: line-through; /* Tachado de texto */
+  color: var(--gris-atenuado);
+  opacity: 0.65;
+}
+
+/* Botón de remoción (Eliminar) */
+.btn-borrar {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  color: var(--rojo-borrar);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-borrar:hover {
+  background: var(--rojo-borrar);
+  color: var(--blanco);
+  border-color: var(--rojo-borrar);
+}
+
+/* Caja de texto que aparece temporalmente al editar */
+.input-editar {
+  flex: 1;
+  border: 1.5px solid var(--azul-primario);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.vacio {
+  text-align: center;
+  color: var(--gris-atenuado);
+  font-size: 0.9rem;
+  padding: 24px 0;
+  font-style: italic;
+}
+
+/* ===== CONTROLADORES DE INTERFAZ (MODO OSCURO) ===== */
+.fila-modo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: var(--gris-atenuado);
+  font-weight: 700;
+}
+
+.toggle {
+  width: 40px;
+  height: 22px;
+  appearance: none;
+  background: #cbd5e1;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.toggle::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: var(--blanco);
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.toggle:checked {
+  background: var(--verde-exito);
+}
+
+.toggle:checked::before {
+  transform: translateX(18px);
+}
+
+/* ===== VARIANTES VISUALES PARA MODO OSCURO CORPORATIVO ===== */
+body.dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Fondo noche corporativo */
+}
+
+body.dark .card {
+  background: #1e293b;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+body.dark h1                 { color: #f8fafc; }
+body.dark .tarea-item         { background: #334155; border-color: #475569; }
+body.dark .tarea-texto        { color: #f1f5f9; }
+body.dark #inputTarea {
+  background: #334155;
+  border-color: #475569;
+  color: #f1f5f9;
+}
+body.dark .contadores span { background: #334155; color: #cbd5e1; border-color: #475569; }
+body.dark .filtros button  { background: #334155; border-color: #475569; color: #cbd5e1; }
+body.dark .filtros button.activo { background: var(--azul-primario); color: #fff; border-color: var(--azul-primario); }
